@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/login_favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login_register_panel.css' ) }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div id="container-requisito-2">
+        <div class="container-form sign-up">
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>¡Bienvenído de nuevo al rancho de la 98!</h2>
+                    <p>Si ya tienes una cuenta por favor inicia sesión aquí</p>
+                    <button class="sign-up-btn" id="pagina-iniciar-sesion">Iniciar sesión</button>
+                    <script>
+                        document.getElementById('pagina-iniciar-sesion').addEventListener('click', function() {
+                            window.location.href = "{{ url_for('login') }}";
+                        });
+                    </script>
+                </div>
+                <form class="form-information" action="{{ url_for('registro') }}" method="post" autocomplete="off">
+                    <h2 class="create-account">Crear una cuenta</h2>
+                    <div class="icons">
+                        <div class="border-icon">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </div>
+                        <div class="border-icon">
+                            <i class='bx bxl-instagram-alt'></i>
+                        </div>
+                        <div class="border-icon">
+                            <i class='bx bxl-twitter'></i>
+                        </div>
+                    </div>
+                    <p class="free-account">Crear una cuenta gratis</p>
+                    <input type="text" placeholder="Nombre" name="sign-ip-username">
+                    <input type="email" placeholder="Correo" name="sign-ip-email">
+                    <input type="password" placeholder="Contraseña" name="sign-ip-password">
+                    <div>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <input type="submit" value="Regístrarse" class="form-information">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

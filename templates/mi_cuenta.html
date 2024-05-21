@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi cuenta</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/mi_cuenta_favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_mi_cuenta.css' ) }}">
+</head>
+<body>
+<div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom">Configura tu cuenta {{nombre_usuario}}</h4>
+    <div class="d-flex align-items-start py-3 border-bottom">
+        <img src="{{ url_for('static', filename='img/usuario_por_defecto.png') }}" class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section">
+            <b>Foto de perfil</b>
+            <p>Aceptamos archivos .png. Tamaño máximo 1MB</p>
+            <button class="btn button border"><b>Subir</b></button>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="firstname">Nombre completo</label>
+                <input type="text" class="bg-light form-control" placeholder="Allan Hand">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="email">Email Address</label>
+                <input type="text" class="bg-light form-control" placeholder="steve_@email.com">
+            </div>
+        </div>
+        <div class="py-3 pb-4 border-bottom">
+            <button class="btn btn-primary mr-3">Guardar cambios</button>
+            <button class="btn border button">Cancelar</button>
+        </div>
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div>
+                <b>Elimina tu cuenta</b>
+            </div>
+            <div class="ml-auto">
+                <button class="btn danger">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

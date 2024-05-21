@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles</title>
+</head>
+<body>
+  <h1>Ver usuario</h1>
+  <div>Id usuario: {{usuario.id}}</div>
+  <div>Nombre usuario: {{usuario.username}}</div>
+  <div>Email usuario: {{usuario.email}}</div>
+  <div>Contraseña usuario: {{usuario.password_hash}}</div>
+  <br/>
+  <a href="{{url_for('ver')}}">Regresar a la página anterior</a>
+</body>
+</html>

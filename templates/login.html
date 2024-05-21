@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/login_favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login_register_panel.css' ) }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div id="container-requisito-2">
+        <!--Código para el requisito 1 (registro)-->
+        <div class="container-form sign-in">
+            <form class="form-information" action="{{ url_for('login') }}" method="post" autocomplete="off">
+                <h2 class="create-account">Iniciar sesión</h2>
+                <div class="icons">
+                    <div class="border-icon">
+                        <i class='bx bxl-facebook-circle'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-instagram-alt'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-twitter'></i>
+                    </div>
+                </div>
+                <p class="free-account">Inicia sesión en tu cuenta</p>
+                <input type="email" placeholder="Correo" name="sign-up-email">
+                <input type="password" placeholder="Contraseña" name="sign-up-password">
+                <div>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <input type="submit" value="Iniciar sesión" class="form-information">
+            </form>
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>¡Bienvenído de nuevo al rancho de la 98!</h2>
+                    <p>Si aún no tienes una cuenta por favor regístrese aquí</p>
+                    <button class="sign-in-btn" id="pagina-registro">Regístrarse</button>
+                    <script>
+                        document.getElementById('pagina-registro').addEventListener('click', function() {
+                            window.location.href = "{{ url_for('registro') }}";
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
